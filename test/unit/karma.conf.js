@@ -13,6 +13,7 @@ module.exports = function (config) {
     // 2. add it to the `browsers` array below.
     browsers: ['PhantomJS'],
     frameworks: ['mocha', 'sinon-chai', 'phantomjs-shim'],
+    client: { mocha: { ui: "tdd" } },
     reporters: ['spec', 'coverage'],
     files: ['./index.js'],
     preprocessors: {
