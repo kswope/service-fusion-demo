@@ -7,7 +7,9 @@ import persons from "./persons"
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  modules: { persons }
+  modules: {
+    persons: { namespaced: true, ...persons }
+  }
 })
 
 export default store
