@@ -23,7 +23,7 @@
       </transition-group>
     </ul>
 
-    <button @click="() => newPerson = true">
+    <button class="button button-grey" @click="() => newPerson = true">
       <i class="fa fa-lg fa-plus-circle"></i>
       <span>add person</span>
     </button>

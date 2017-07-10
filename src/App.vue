@@ -1,7 +1,9 @@
 <template>
-  <div class="container">
-    <router-view></router-view>
-  </div>
+
+<div class="my-container">
+  <router-view></router-view>
+</div>
+
 </template>
 
 <script>
@@ -14,13 +16,13 @@ export default {
 
 <style>
 
-.container {
+.my-container {
   width: 70%;
   margin: 0px auto;
   margin-top: 100px;
 }
 
-button {
+.button-grey {
   background-color: grey;
   border-color: grey;
 }
