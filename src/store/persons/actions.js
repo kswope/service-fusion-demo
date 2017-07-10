@@ -4,20 +4,46 @@ export default {
 
   startSync( { commit, state } ) {
 
+    let onSuccess = snapshot => {
+      commit( "setAll", snapshot.val() )
+    }
+
+    let onError = error => {
+      console.error( error )
+    }
+
     firebase.database()
       .ref( "persons" )
-      .on( "value", snapshot => {
-        commit( "setAll", snapshot.val() )
-      } )
+      .on( "value", onSuccess, onError )
 
-    // single shot "once" promise version
-    // firebase.database().ref( "persons" ).once( "value" )
-    //   .then( snapshot => {
-    //     commit( "setAll", snapshot.val() )
-    //   } )
-    //   .catch( error => {
-    //     console.error( "Error: " + error.code )
-    //   } )
+  },
+
+  add( { commit, state }, person ) {
+
+    firebase.database()
+      .ref( "persons" )
+      .push( person )
+      .catch( error => console.error( error ) )
+
+  },
+
+  remove( { commit, state }, pushId ) {
+
+    firebase.database()
+      .ref( "persons" )
+      .child( pushId )
+      .remove()
+      .catch( error => console.error( error ) )
+
+  },
+
+  update( { commit, state }, [pushId, person] ) {
+
+    firebase.database()
+      .ref( "persons" )
+      .child( pushId )
+      .update( person )
+      .catch( error => console.error( error ) )
 
   }
 

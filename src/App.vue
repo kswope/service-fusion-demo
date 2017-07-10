@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <h1>basic crud app</h1>
+  <div class="container">
     <router-view></router-view>
   </div>
 </template>
@@ -14,4 +13,16 @@ export default {
 </script>
 
 <style>
+
+.container {
+  width: 70%;
+  margin: 0px auto;
+  margin-top: 100px;
+}
+
+button {
+  background-color: grey;
+  border-color: grey;
+}
+
 </style>
